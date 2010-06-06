@@ -148,6 +148,7 @@ namespace BlitzAgency.Net.CouchDB
 
                 if (Encoding.UTF8.GetString(httpResponseTest, 0, httpResponseTest.Length) == HTTP_RESPONSE_KEY)
                 {
+                    // 198 bytes = CouchDB 0.11 header response length
                     byte[] bytes = new byte[stream.Length - 198];
                     stream.Seek(198, SeekOrigin.Begin);
                 }
