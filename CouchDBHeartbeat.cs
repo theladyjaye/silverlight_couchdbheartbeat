@@ -55,6 +55,7 @@ namespace BlitzAgency.Net.CouchDB
         const int SOCKET_BUFFER_SIZE = 1024;
         const string HTTP_RESPONSE_KEY = "HTTP/1.1 200 OK\r\n";
         const string COUCH_DB_HOST = "yourdomian.com";
+        const string COUCH_DB_CHANGES_ENDPOINT = "/changes";
         const int COUCH_DB_PORT = 4530;
 
         byte[] message_buffer;
@@ -103,11 +104,11 @@ namespace BlitzAgency.Net.CouchDB
                 
                 if (Offset != null && int.Parse(Offset) > 0)
                 {
-                    builder.Append("GET /changes?since="+Offset+" HTTP/1.1\r\n");
+                    builder.Append("GET "+CouchDBHeartbeat.COUCH_DB_CHANGES_ENDPOINT+"?since="+Offset+" HTTP/1.1\r\n");
                 }
                 else
                 {
-                    builder.Append("GET /changes HTTP/1.1\r\n");
+                    builder.Append("GET "+CouchDBHeartbeat.COUCH_DB_CHANGES_ENDPOINT+" HTTP/1.1\r\n");
                 }
                
                 builder.Append("Host: "+CouchDBHeartbeat.COUCH_DB_HOST+ ':'+CouchDBHeartbeat.COUCH_DB_PORT.ToString() + "\r\n");
