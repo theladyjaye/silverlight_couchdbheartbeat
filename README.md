@@ -12,4 +12,8 @@ You will need to change your CouchDB default port in your config.  This example 
 
 Configuration
 -------------
-Everything is configured in CouchDBHeartbeat.cs.  Check the top of the class for the configurable constants, port, server name, etc...
+Everything is configured in CouchDBHeartbeat.cs. Check the top of the class for the configurable constants, port, server name, etc...
+
+Requirements
+------------
+Just as a head up, you will need to include a reference to System.Json in your Silverlight project
